@@ -21,12 +21,22 @@ export default class Knight {
     };
 
     let path = [];
+    let moves = 0;
+
+    // moves
     while (curr.pastMove) {
-      path.unshift(curr);
+      path.unshift([curr[0], curr[1]]);
       curr = curr.pastMove;
+      moves++;
     };
 
-    console.log(path);
+    // including starting location in path
+    path.unshift([start[0], start[1]]);
+
+    console.log(`You made it in ${moves} moves! Here's your path:`);
+    for (let i = 0; i < path.length; i++) {
+      console.log(path[i]);
+    }
     return;
   }
 
